@@ -3,12 +3,11 @@ tput setaf 7 ; tput setab 4 ; tput bold ; printf '%35s%s%-20s\n' "  Tunel SSH Di
 tput setaf 3 ; tput bold ; echo "" ; echo "  Debian, Ubuntu e CentOS (32|64 bits), Este script irá:  " ; echo ""
 echo "● Instalar e configurar o DropBear 5.0 na porta 80,"
 echo "... Possibilitando Tunel SSH Direto, na porta 80"
-echo "● Funcionará nos APPs 'Eproxy' e 'KpnTunnel Ultimate',"
+echo "● Funciona nos APPs 'Eproxy' e 'KpnTunnel Ultimate',"
 echo "... ** Vc só conectará na operadora que usar a porta 80"
 echo "● Instalar vários comando de gerenciamento do VPS" ; tput sgr0
 echo ""
 tput setaf 6 ; tput bold ; read -n 1 -s -p " Aperte qualquer tecla para continuar, ou Ctrl+c para cancelar... " ; echo "" ; echo "" ; tput sgr0
-sleep 3
 #
 echo "$(tput bold) Atualizando pacotes do VPS, Aguarde, pode demorar ...$(tput sgr0)"
 #
@@ -93,7 +92,7 @@ service dropbear start
 /etc/init.d/dropbear restart
 service dropbear restart
 tput setaf 7 ; tput setab 4 ; tput bold ; echo " SERVIDOR DROPBEAR CONFIGURADO COM SUCESSO" ; tput sgr0 ; echo ""
-tput setaf 7 ; tput setab 4 ; tput bold ; echo " ● Entrem no Canal do Telegram @NetGratisMobileE" ; (tput sgr0
+tput setaf 7 ; tput setab 4 ; tput bold ; echo " ● Entrem no Canal do Telegram @NetGratisMobileE" ; tput sgr0
 tput setaf 7 ; tput setab 4 ; tput bold ; echo " Para ver os 'COMANDOS DISPONÍVEIS' dê o comando: ajuda" ; tput sgr0 ; echo ""
 #
 echo ""
