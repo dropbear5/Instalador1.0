@@ -32,33 +32,6 @@ else
 fi
 echo ""
 #
-echo "$(tput bold) Instalando comandos de gerenciamento do VPS $(tput sgr0)"
-sleep 3
-	grep -v "^PasswordAuthentication yes" /etc/ssh/sshd_config > /tmp/passlogin && mv /tmp/passlogin /etc/ssh/sshd_config
-	echo "PasswordAuthentication yes" >> /etc/ssh/sshd_config
-	grep -v "^PermitTunnel yes" /etc/ssh/sshd_config > /tmp/ssh && mv /tmp/ssh /etc/ssh/sshd_config
-	echo "PermitTunnel yes" >> /etc/ssh/sshd_config
-	wget https://raw.githubusercontent.com/dropbear5/Instalador1.0/master/criarusuario -O /bin/criarusuario
-	chmod +x /bin/criarusuario
-	wget https://raw.githubusercontent.com/dropbear5/Instalador1.0/master/apagar -O /bin/apagar
-	chmod +x /bin/apagar
-	wget https://raw.githubusercontent.com/dropbear5/Instalador1.0/master/monitor -O /bin/monitor
-	chmod +x /bin/monitor
-	wget https://raw.githubusercontent.com/dropbear5/Instalador1.0/master/mudardata -O /bin/mudardata
-	chmod +x /bin/mudardata
-	wget https://raw.githubusercontent.com/dropbear5/Instalador1.0/master/mudarlimite -O /bin/mudarlimite
-	chmod +x /bin/mudarlimite
-	wget https://raw.githubusercontent.com/dropbear5/Instalador1.0/master/mudarsenha -O /bin/mudarsenha
-	chmod +x /bin/mudarsenha
-	wget https://raw.githubusercontent.com/dropbear5/Instalador1.0/master/sshlimiter -O /bin/sshlimiter
-	chmod +x /bin/sshlimiter
-	wget https://raw.githubusercontent.com/dropbear5/Instalador1.0/master/apps -O /bin/apps
-	chmod +x /bin/apps
-	wget https://raw.githubusercontent.com/dropbear5/Instalador1.0/master/ajuda -O /bin/ajuda
-	chmod +x /bin/ajuda
-	fi
-	echo ""
-#
 echo "$(tput bold) Instalando DropBear 5.0, aguarde ...$(tput sgr0)"
 #
 apt-get -y install dropbear 1>/dev/null 2>/dev/null
@@ -84,6 +57,32 @@ yum rm -r squid3 -y 1>/dev/null 2>/dev/null
 yum remove squid -y 1>/dev/null 2>/dev/null
 yum rm -r squid -y 1>/dev/null 2>/dev/null
 yum autoremove -y 1>/dev/null 2>/dev/null
+# comandos testes
+echo "$(tput bold) Instalando comandos de gerenciamento do VPS $(tput sgr0)"
+sleep 3
+	grep -v "^PasswordAuthentication yes" /etc/ssh/sshd_config > /tmp/passlogin && mv /tmp/passlogin /etc/ssh/sshd_config
+	echo "PasswordAuthentication yes" >> /etc/ssh/sshd_config
+	grep -v "^PermitTunnel yes" /etc/ssh/sshd_config > /tmp/ssh && mv /tmp/ssh /etc/ssh/sshd_config
+	echo "PermitTunnel yes" >> /etc/ssh/sshd_config
+	wget https://raw.githubusercontent.com/dropbear5/Instalador1.0/master/criarusuario -O /bin/criarusuario
+	chmod +x /bin/criarusuario
+	wget https://raw.githubusercontent.com/dropbear5/Instalador1.0/master/apagar -O /bin/apagar
+	chmod +x /bin/apagar
+	wget https://raw.githubusercontent.com/dropbear5/Instalador1.0/master/monitor -O /bin/monitor
+	chmod +x /bin/monitor
+	wget https://raw.githubusercontent.com/dropbear5/Instalador1.0/master/mudardata -O /bin/mudardata
+	chmod +x /bin/mudardata
+	wget https://raw.githubusercontent.com/dropbear5/Instalador1.0/master/mudarlimite -O /bin/mudarlimite
+	chmod +x /bin/mudarlimite
+	wget https://raw.githubusercontent.com/dropbear5/Instalador1.0/master/mudarsenha -O /bin/mudarsenha
+	chmod +x /bin/mudarsenha
+	wget https://raw.githubusercontent.com/dropbear5/Instalador1.0/master/sshlimiter -O /bin/sshlimiter
+	chmod +x /bin/sshlimiter
+	wget https://raw.githubusercontent.com/dropbear5/Instalador1.0/master/apps -O /bin/apps
+	chmod +x /bin/apps
+	wget https://raw.githubusercontent.com/dropbear5/Instalador1.0/master/ajuda -O /bin/ajuda
+	chmod +x /bin/ajuda
+	echo ""
 #
 echo "$(tput bold) FIX Usuários sem acesso ao shell...$(tput sgr0)"
 sleep 3
