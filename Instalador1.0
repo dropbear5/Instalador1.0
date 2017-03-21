@@ -12,11 +12,6 @@ sleep 3
 #
 echo "$(tput bold) Atualizando pacotes do VPS, Aguarde, pode demorar ...$(tput sgr0)"
 #
-apt-get -y update 1>/dev/null 2>/dev/null
-apt-get -y upgrade 1>/dev/null 2>/dev/null
-yum -y update 1>/dev/null 2>/dev/null
-yum -y upgrade 1>/dev/null 2>/dev/null
-#
 if [ -f "/root/usuarios.db" ]
 then
 tput setaf 5 ; tput bold ;	echo ""
@@ -35,6 +30,7 @@ echo ""
 #
 echo "$(tput bold) Instalando comandos de gerenciamento do VPS $(tput sgr0)"
 #
+sleep 1
 	grep -v "^PasswordAuthentication yes" /etc/ssh/sshd_config > /tmp/passlogin && mv /tmp/passlogin /etc/ssh/sshd_config
 	echo "PasswordAuthentication yes" >> /etc/ssh/sshd_config
 	grep -v "^PermitTunnel yes" /etc/ssh/sshd_config > /tmp/ssh && mv /tmp/ssh /etc/ssh/sshd_config
@@ -85,7 +81,7 @@ service dropbear start
 /etc/init.d/dropbear restart
 service dropbear restart
 tput setaf 7 ; tput setab 4 ; tput bold ; echo " SERVIDOR DROPBEAR CONFIGURADO COM SUCESSO" ; tput sgr0
-echo "$(tput bold) Entrem no Canal Telegram @NetGratisMobileE $(tput sgr0)"
+echo "$(tput bold) ● Entrem no Canal Telegram @NetGratisMobileE $(tput sgr0)"
 echo "$(tput bold) ● Crie um usuário com: useradd -m -s /bin/false usuario $(tput sgr0)"
 echo "$(tput bold) ● Crie a senha do usuario com: passwd usuario $(tput sgr0)"
 echo "$(tput bold) ● Como >configurar todos os aplicativos< $(tput sgr0)"
