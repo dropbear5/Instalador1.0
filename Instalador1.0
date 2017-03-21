@@ -1,16 +1,21 @@
 #!/bin/bash
 tput setaf 7 ; tput setab 4 ; tput bold ; printf '%35s%s%-20s\n' "  Tunel SSH Direto by user Telegram @FranciscoManim  " ; tput sgr0
 tput setaf 3 ; tput bold ; echo "" ; echo "  Debian, Ubuntu e CentOS (32|64 bits), Este script irá:  " ; echo ""
-echo "● Instalar e configurar o DropBear 5.0 na porta 80"
-echo "● Possibilitando Tunel SSH Direto, na porta 80"
-echo "● Funciona nos APPs 'Eproxy' e 'KpnTunnel Ultimate'"
-echo "● ** Vc só conectará na operadora que usar a porta 80"
-echo "● Anote os comandos no final da instalação" ; tput sgr0
+echo "● Instalar e configurar o DropBear 5.0 na porta 80,"
+echo "... Possibilitando Tunel SSH Direto, na porta 80"
+echo "● Funcionará nos APPs 'Eproxy' e 'KpnTunnel Ultimate',"
+echo "... ** Vc só conectará na operadora que usar a porta 80"
+echo "● Instalar vários comando de gerenciamento do VPS" ; tput sgr0
 echo ""
 tput setaf 6 ; tput bold ; read -n 1 -s -p " Aperte qualquer tecla para continuar, ou Ctrl+c para cancelar... " ; echo "" ; echo "" ; tput sgr0
 sleep 3
 #
 echo "$(tput bold) Atualizando pacotes do VPS, Aguarde, pode demorar ...$(tput sgr0)"
+#
+apt-get -y update 1>/dev/null 2>/dev/null
+apt-get -y upgrade 1>/dev/null 2>/dev/null
+yum -y update 1>/dev/null 2>/dev/null
+yum -y upgrade 1>/dev/null 2>/dev/null
 #
 if [ -f "/root/usuarios.db" ]
 then
@@ -29,8 +34,7 @@ fi
 echo ""
 #
 echo "$(tput bold) Instalando comandos de gerenciamento do VPS $(tput sgr0)"
-#
-sleep 1
+sleep 3
 	grep -v "^PasswordAuthentication yes" /etc/ssh/sshd_config > /tmp/passlogin && mv /tmp/passlogin /etc/ssh/sshd_config
 	echo "PasswordAuthentication yes" >> /etc/ssh/sshd_config
 	grep -v "^PermitTunnel yes" /etc/ssh/sshd_config > /tmp/ssh && mv /tmp/ssh /etc/ssh/sshd_config
@@ -38,6 +42,8 @@ sleep 1
 #
 	wget https://raw.githubusercontent.com/dropbear5/Instalador1.0/master/criarusuario -O /bin/criarusuario
 	chmod +x /bin/criarusuario
+	wget https://raw.githubusercontent.com/dropbear5/Instalador1.0/master/apagar -O /bin/apagar
+	chmod +x /bin/apagar
 	wget https://raw.githubusercontent.com/dropbear5/Instalador1.0/master/monitor -O /bin/monitor
 	chmod +x /bin/monitor
 	wget https://raw.githubusercontent.com/dropbear5/Instalador1.0/master/mudardata -O /bin/mudardata
@@ -48,6 +54,10 @@ sleep 1
 	chmod +x /bin/mudarsenha
 	wget https://raw.githubusercontent.com/dropbear5/Instalador1.0/master/sshlimiter -O /bin/sshlimiter
 	chmod +x /bin/sshlimiter
+	wget https://raw.githubusercontent.com/dropbear5/Instalador1.0/master/apps -O /bin/apps
+	chmod +x /bin/apps
+	wget https://raw.githubusercontent.com/dropbear5/Instalador1.0/master/ajuda -O /bin/ajuda
+	chmod +x /bin/ajuda
 #
 echo "$(tput bold) Instalando DropBear 5.0, aguarde ...$(tput sgr0)"
 #
@@ -62,6 +72,8 @@ sed -i 's/DROPBEAR_EXTRA_ARGS=/DROPBEAR_EXTRA_ARGS="-p 110"/g' /etc/default/drop
 #
 echo "$(tput bold) Removendo pacotes Proxy Squid para ñ haver conflitos ...$(tput sgr0)"
 #
+rm /bin/listar /bin/expcleaner /bin/apagar /bin/criar /bin/criarusuario /bin/ajuda /bin/apps /bin/payloads /bin/delhost /bin/addhost /bin/detalhes /bin/limitador /bin/sshlimiter /bin/limpar /bin/monitor /bin/monitorar /bin/mudardata /bin/mudarlimite /bin/mudarsenha /bin/velocidade /bin/velocimetro /bin/velocimetro.py > /dev/null
+rm /root/ExpCleaner.sh /root/CriarUsuario.sh /root/sshlimiter.sh > /dev/null
 apt-get remove squid3 -y 1>/dev/null 2>/dev/null
 apt-get rm -r squid3 -y 1>/dev/null 2>/dev/null
 apt-get remove squid -y 1>/dev/null 2>/dev/null
@@ -80,16 +92,9 @@ echo "/bin/false" >> /etc/shells 1>/dev/null 2>/dev/null
 service dropbear start
 /etc/init.d/dropbear restart
 service dropbear restart
-tput setaf 7 ; tput setab 4 ; tput bold ; echo " SERVIDOR DROPBEAR CONFIGURADO COM SUCESSO" ; tput sgr0
-echo "$(tput bold) ● Entrem no Canal Telegram @NetGratisMobileE $(tput sgr0)"
-echo "$(tput bold) ● Crie um usuário com: useradd -m -s /bin/false usuario $(tput sgr0)"
-echo "$(tput bold) ● Crie a senha do usuario com: passwd usuario $(tput sgr0)"
-echo "$(tput bold) ● Como >configurar todos os aplicativos< $(tput sgr0)"
-echo "$(tput bold) >IP SSH= ip_vps; >PORTA SSH= 80; User e Senha= Criados por vc $(tput sgr0)"
-echo "$(tput bold) >PayLoad= Cada operadora tem uma; >Proxy= Deixa em Branco $(tput sgr0)"
-echo "$(tput bold) >PayLoad= Cada operadora tem uma; >Proxy= Deixa em Branco $(tput sgr0)"
-echo "$(tput bold) >Eproxy, marque Direto SSH e PayLoad $(tput sgr0)"
-tput setaf 7 ; tput setab 4 ; tput bold ; echo " Para ver os 'COMANDOS DISPONÍVEIS' dê o comando: ajuda" ; tput sgr0
+tput setaf 7 ; tput setab 4 ; tput bold ; echo " SERVIDOR DROPBEAR CONFIGURADO COM SUCESSO" ; tput sgr0 ; echo ""
+tput setaf 7 ; tput setab 4 ; tput bold ; echo " ● Entrem no Canal do Telegram @NetGratisMobileE" ; (tput sgr0
+tput setaf 7 ; tput setab 4 ; tput bold ; echo " Para ver os 'COMANDOS DISPONÍVEIS' dê o comando: ajuda" ; tput sgr0 ; echo ""
 #
 echo ""
 if [[ "$optiondb" = '2' ]]; then
