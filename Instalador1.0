@@ -34,7 +34,6 @@ echo ""
 #
 echo "$(tput bold) Instalando comandos de gerenciamento do VPS $(tput sgr0)"
 sleep 3
-then
 	grep -v "^PasswordAuthentication yes" /etc/ssh/sshd_config > /tmp/passlogin && mv /tmp/passlogin /etc/ssh/sshd_config
 	echo "PasswordAuthentication yes" >> /etc/ssh/sshd_config
 	grep -v "^PermitTunnel yes" /etc/ssh/sshd_config > /tmp/ssh && mv /tmp/ssh /etc/ssh/sshd_config
