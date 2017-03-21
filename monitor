@@ -5,8 +5,8 @@ echo $$ > /tmp/kids
 while true
 do
 clear
-tput setaf 1 ; tput setab 4 ; tput bold ; printf '%28s%s%-18s\n' "SSH Monitor"
-tput setaf 1 ; tput setab 4 ; printf '  %-30s%s\n' "Usuário" "Conexão/Limite " ; echo "" ; tput sgr0
+tput setaf 7 ; tput setab 4 ; tput bold ; printf '%28s%s%-18s\n' "SSH Monitor"
+tput setaf 7 ; tput setab 4 ; printf '  %-30s%s\n' "Usuário" "Conexão/Limite " ; echo "" ; tput sgr0
         while read usline
         do
                 user="$(echo $usline | cut -d' ' -f1)"
@@ -16,7 +16,7 @@ tput setaf 1 ; tput setab 4 ; printf '  %-30s%s\n' "Usuário" "Conexão/Limite "
                 else
                         ps x | grep [[:space:]]$user[[:space:]] | grep -v grep | grep -v pts > /tmp/tmp8
                         s1ssh="$(cat /tmp/tmp8 | wc -l)"
-                        tput setaf 6 ; tput bold ; printf '  %-35s%s\n' $user $s1ssh/$s2ssh; tput sgr0
+                        tput setaf 3 ; tput bold ; printf '  %-35s%s\n' $user $s1ssh/$s2ssh; tput sgr0
                 fi
         done < "$database"
         echo ""
