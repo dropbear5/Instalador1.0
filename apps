@@ -1,12 +1,12 @@
 #!/bin/bash
-tput setaf 7 ; tput setab 4 ; tput bold ; printf '%30s%s%-10s\n' "Como configurar os APLICATIVOS:" ; tput sgr0
+tput setaf 7 ; tput setab 4 ; tput bold ; printf '%30s%s%-10s\n' "   Como configurar os APLICATIVOS:" ; tput sgr0
 tput setaf 2 ; tput bold ; printf '%s' "Eproxy: " ; tput setaf 7 ; printf '%s' "- " ; tput setaf 3 ; echo "Marque a opção DIRETO SSH"
 tput setaf 2 ; tput bold ; printf '%s' "KPNTunnel Ultimate: " ; tput setaf 7 ; printf '%s' "- " ; tput setaf 3 ; echo "Proxy deixa em branco" ; echo ""
 tput setaf 7 ; tput setab 4 ; tput bold ; printf '%30s%s%-10s\n' "KPNTunnel Ultimate e Eproxy:" ; tput sgr0
 tput setaf 2 ; tput bold ; printf '%s' "CONTA/IP SSH: " ; tput setaf 7 ; printf '%s' "- " ; tput setaf 3 ; echo "IP_VPS"
 tput setaf 2 ; tput bold ; printf '%s' "PORTA SSH: " ; tput setaf 7 ; printf '%s' "- " ; tput setaf 3 ; echo "80"
 tput setaf 2 ; tput bold ; printf '%s' "USUÁRIO e SENHA: " ; tput setaf 7 ; printf '%s' "- " ; tput setaf 3 ; echo "Usuário e Senha criados"
-tput setaf 2 ; tput bold ; printf '%s' "PAYLOAD: " ; tput setaf 7 ; printf '%s' "- " ; tput setaf 3 ; echo "Coloque a PayLoad correspondente a operadora" ; echo ""
+tput setaf 2 ; tput bold ; printf '%s' "PAYLOAD: " ; tput setaf 7 ; printf '%s' "- " ; tput setaf 3 ; echo "De qqr operadora q usa a porta 80" ; echo ""
 tput setaf 7 ; tput bold ; printf '%s' "Script Para configurar Squid " ; tput setaf 1 ; printf '%s' "- " ; tput setaf 5 ; echo "Proteção contra ataques Ddos, Syn, Spam entre outros, Bloqueio total de TORRENT, + de 30 comandos, VENDO por R$ 50 via depósito, INTERESSOU Telegram @FranciscoManim |Se ñ tem o dinheiro, ñ terá o script|" ; echo ""
 tput setaf 7 ; tput bold ; printf '%s' "LOGIN SEGURO " ; tput setaf 1 ; printf '%s' "- " ; tput setaf 5 ; echo "Login CRIPTOGRAFADO sem necessidade da SENHA do usuário, VPS fica 100% seguro contra quem abre arquivos e invasões, VENDO o método por R$ 100 via depósito, INTERESSOU Telegram @FranciscoManim |Se ñ tem o dinheiro, ñ terá o método|" ; echo ""
 tput sgr0
